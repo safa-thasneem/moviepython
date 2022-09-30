@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        {% for i in movie_list %}
+
+        <div class="col-md-3">
+            <div class="card" style="width:17rem; height:30rem">
+  <img class="card-img-top " src="{{i.image.url}}" alt="" height="250" >
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <p class="card-text">{{i.desc}}</p>
+    <a href="{% url 'movieapp:details' i.id %}" class="btn btn-warning">View Detail</a>
+  </div>
+
+</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+
+<p>Add To Another Movie Please Click Here  <a class="btn btn-warning"  href="{% url 'movieapp:add_movie' %}" >Add</a>  </p>
+
+{% endblock %}
